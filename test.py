@@ -29,17 +29,18 @@ if __name__ == '__main__':
     LP.create_interactive_plot((0.5, 20))
     LP.show_interactive(cutoff_range=(0.5, 20))
 
-    print("示例: AM调制")
-    AM = AMModulation(exper, carrier_freq=100,
-                       sample_frequency=1000, T=2, modulation_index=0.8)
-    fig1 = AM.visualize(demod_method='envelope')
-    fig1.show()
+    print("示例1: AM调制 - 简单正弦信号")
+    message_signal1 = sin(2 * pi * 5 * t)
+    am1 = AMModulation(message_signal1, sample_frequency=1000, T=2, modulation_index=0.8)
+    am1.visualize(demod_method='envelope', carrier_freq_range=(20, 100))
+    am1.show_interactive()
 
-    print("示例: FM调制")
-    FM = FMModulation(exper, carrier_freq=100,
+    print("示例1: FM调制 - 简单正弦信号")
+    message_signal1 = sin(2 * pi * 5 * t)
+    fm1 = FMModulation(message_signal1, carrier_freq=100,
                        sample_frequency=1000, T=2, freq_deviation=30)
-    fig1 = FM.visualize()
-    fig1.show()
+    fm1.visualize(carrier_freq_range=(20, 100))
+    fm1.show_interactive()
 
     print("PM调制")
     PM = PMModulation(exper, carrier_freq=100,

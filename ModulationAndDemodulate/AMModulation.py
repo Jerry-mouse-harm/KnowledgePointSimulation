@@ -110,7 +110,7 @@ class AMModulation(BasicFilter):
         """可视化调制解调过程，使用希尔伯特变换来实现"""
         # 判断载波信号的频率范围
         if carrier_freq_range is None:
-            print('carrier_freq_range <UNK>')
+            print('carrier_freq_range 未设置')
             exit(-1)
 
         num_steps = 50
